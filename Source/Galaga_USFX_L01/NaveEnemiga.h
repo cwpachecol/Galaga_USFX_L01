@@ -24,16 +24,16 @@ public:
 	//Metodos de acceso
 	FORCEINLINE void setNombre(FString* nombre) { this->nombre = nombre; }
 	FORCEINLINE FString *getNombre() { return nombre; }
-	void setVelocidad(float velocidad);
-	float getVelocidad();
-	void setPosicionX(float posicionX);
-	float getPosicionX();
-	void setPosicionY(float posicionY);
-	float getPosicionY();
-	void setPosicionZ(float posicionZ);
-	float getPosicionZ();
-	void setEnergia(float energia);
-	float getEnergia();
+	FORCEINLINE void setVelocidad(float velocidad) { this->velocidad = velocidad; }
+	FORCEINLINE float getVelocidad() { return velocidad; }
+	FORCEINLINE void setPosicionX(float posicionX) { this->posicionX = posicionX; }
+	FORCEINLINE float getPosicionX() { return posicionX; }
+	FORCEINLINE void setPosicionY(float posicionY) { this->posicionY = posicionY; }
+	FORCEINLINE float getPosicionY() { return posicionY; }
+	FORCEINLINE void setPosicionZ(float posicionZ) { this->posicionZ = posicionZ; }
+	FORCEINLINE float getPosicionZ() { return posicionZ; }
+	FORCEINLINE void setEnergia(float energia) { this->energia = energia; }
+	FORCEINLINE float getEnergia() { return energia; }
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
