@@ -10,30 +10,44 @@ UCLASS()
 class GALAGA_USFX_L01_API ANaveEnemiga : public AActor
 {
 	GENERATED_BODY()
+
+public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Projectile, meta = (AllowPrivateAccess = "true"))
+	UStaticMeshComponent* NaveEnemigaMesh;
+
 private:
-	FString* nombre;
+	float resistencia;
 	float velocidad;
+	float danoProducido;
+	FString nombre;
+	float tiempoDisparo;
 	float posicionX;
 	float posicionY;
 	float posicionZ;
-	float energia;
-public:	
+	FVector posicion;
+public:
+	FORCEINLINE float GetResistencia() const { return resistencia; }
+	FORCEINLINE float GetVelocidad() const { return velocidad; }
+	FORCEINLINE float GetDanoProducido() const { return danoProducido; }
+	FORCEINLINE FString GetNombre() const { return nombre; }
+	FORCEINLINE float GetTiempoDisparo() const { return tiempoDisparo; }
+	FORCEINLINE float GetPosicionX() const { return posicionX; }
+	FORCEINLINE float GetPosicionY() const { return posicionY; }
+	FORCEINLINE float GetPosicionZ() const { return posicionZ; }
+
+	FORCEINLINE void SetResistencia(float _resistencia) { resistencia = _resistencia; }
+	FORCEINLINE void SetVelocidad(float _velocidad) { velocidad = _velocidad; }
+	FORCEINLINE void SetDanoProducido(float _danoProducido) { danoProducido = _danoProducido; }
+	FORCEINLINE void SetNombre(FString _nombre) { nombre = _nombre; }
+	FORCEINLINE void SetTiempoDisparo(float _tiempoDisparo) { tiempoDisparo = _tiempoDisparo; }
+	FORCEINLINE void SetPosicionX(float _posicionX) { posicionX = _posicionX; }
+	FORCEINLINE void SetPosicionY(float _posicionY) { posicionY = _posicionY; }
+	FORCEINLINE void SetPosicionZ(float _posicionZ) { posicionZ = _posicionZ; }
+
+public:
 	// Sets default values for this actor's properties
 	ANaveEnemiga();
-public:
-	//Metodos de acceso
-	FORCEINLINE void setNombre(FString* nombre) { this->nombre = nombre; }
-	FORCEINLINE FString *getNombre() { return nombre; }
-	FORCEINLINE void setVelocidad(float velocidad) { this->velocidad = velocidad; }
-	FORCEINLINE float getVelocidad() { return velocidad; }
-	FORCEINLINE void setPosicionX(float posicionX) { this->posicionX = posicionX; }
-	FORCEINLINE float getPosicionX() { return posicionX; }
-	FORCEINLINE void setPosicionY(float posicionY) { this->posicionY = posicionY; }
-	FORCEINLINE float getPosicionY() { return posicionY; }
-	FORCEINLINE void setPosicionZ(float posicionZ) { this->posicionZ = posicionZ; }
-	FORCEINLINE float getPosicionZ() { return posicionZ; }
-	FORCEINLINE void setEnergia(float energia) { this->energia = energia; }
-	FORCEINLINE float getEnergia() { return energia; }
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
