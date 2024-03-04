@@ -276,6 +276,8 @@
     <None Include="..\..\Galaga_USFX_L01.uproject"/>
     <None Include="..\..\Source\Galaga_USFX_L01.Target.cs"/>
     <None Include="..\..\Source\Galaga_USFX_L01Editor.Target.cs"/>
+    <None Include="..\..\.gitattributes"/>
+    <None Include="..\..\.gitignore"/>
     <None Include="..\..\Config\DefaultEditor.ini"/>
     <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini"/>
     <None Include="..\..\Config\DefaultEngine.ini"/>

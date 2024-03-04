@@ -11,10 +11,10 @@ ANaveEnemiga::ANaveEnemiga()
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cone.Shape_Cone'"));
 	// Create the mesh component
-	NaveEnemigaMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
-	NaveEnemigaMesh->SetStaticMesh(ShipMesh.Object);
-	NaveEnemigaMesh->SetupAttachment(RootComponent);
-	RootComponent = NaveEnemigaMesh;
+	mallaNaveEnemiga = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
+	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
+	mallaNaveEnemiga->SetupAttachment(RootComponent);
+	RootComponent = mallaNaveEnemiga;
 }
 
 // Called when the game starts or when spawned
