@@ -30,6 +30,9 @@ protected:
 	float experiencia;
 	float energia;
 
+	float peso;
+	float volumen;
+
 public:
 	FORCEINLINE float GetVelocidad() const { return velocidad; }
 	FORCEINLINE float GetResistencia() const { return resistencia; }
@@ -43,6 +46,8 @@ public:
 	FORCEINLINE int GetTipoNave() const { return tipoNave; }
 	FORCEINLINE float GetExperiencia() const { return experiencia; }
 	FORCEINLINE float GetEnergia() const { return energia; }
+	FORCEINLINE float GetPeso() const { return peso; }
+	FORCEINLINE float GetVolumen() const { return volumen; }
 
 	FORCEINLINE void SetVelocidad(float _velocidad) { velocidad = _velocidad; }
 	FORCEINLINE void SetResistencia(float _resistencia) { resistencia = _resistencia; }
@@ -56,6 +61,8 @@ public:
 	FORCEINLINE void SetTipoNave(int _tipoNave) { tipoNave = _tipoNave; }
 	FORCEINLINE void SetExperiencia(float _experiencia) { experiencia = _experiencia; }
 	FORCEINLINE void SetEnergia(float _energia) { energia = _energia; }
+	FORCEINLINE void SetPeso(float _peso) { peso = _peso; }
+	FORCEINLINE void SetVolumen(float _volumen) { volumen = _volumen; }
 
 public:
 	// Sets default values for this actor's properties
