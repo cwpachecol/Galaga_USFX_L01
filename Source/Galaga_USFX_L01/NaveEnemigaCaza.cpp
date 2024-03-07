@@ -16,3 +16,7 @@ void ANaveEnemigaCaza::Mover()
 {
 
 }
+
+void ANaveEnemigaCaza::Disparar()
+{
+}

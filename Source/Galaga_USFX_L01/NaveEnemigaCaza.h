@@ -22,4 +22,5 @@ public:
 	FORCEINLINE void SetCantidadBombas(int _cantidadBombas) { cantidadBombas = _cantidadBombas; }
 protected:
 	virtual void Mover();
+	virtual void Disparar();
 };
