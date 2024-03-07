@@ -6,7 +6,9 @@
 #include "GameFramework/GameModeBase.h"
 #include "Galaga_USFX_L01GameMode.generated.h"
 
-class ANaveEnemiga;
+//class ANaveEnemiga;
+class ANaveEnemigaTransporte;
+class ANaveEnemigaCaza;
 
 UCLASS(MinimalAPI)
 class AGalaga_USFX_L01GameMode : public AGameModeBase
@@ -17,8 +19,9 @@ public:
 	AGalaga_USFX_L01GameMode();
 
 public:
-	ANaveEnemiga* NaveEnemiga01;
-
+	//ANaveEnemiga* NaveEnemiga01;
+	ANaveEnemigaTransporte* NaveEnemigaTransporte01;
+	ANaveEnemigaCaza* NaveEnemigaCaza01;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

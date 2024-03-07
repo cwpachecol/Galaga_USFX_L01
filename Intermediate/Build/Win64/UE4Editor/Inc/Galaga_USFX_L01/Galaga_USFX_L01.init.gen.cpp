@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFX_L01_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x0C766DB6,
+				0xAFE16C08,
 				0x314C64DD,
 				METADATA_PARAMS(nullptr, 0)
 			};

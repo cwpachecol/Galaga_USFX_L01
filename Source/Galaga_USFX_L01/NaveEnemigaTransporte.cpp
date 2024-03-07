@@ -3,3 +3,6 @@
 
 #include "NaveEnemigaTransporte.h"
 
+void ANaveEnemigaTransporte::Mover()
+{
+}
