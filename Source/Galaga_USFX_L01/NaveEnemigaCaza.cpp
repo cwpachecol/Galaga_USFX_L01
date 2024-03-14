@@ -9,7 +9,7 @@ ANaveEnemigaCaza::ANaveEnemigaCaza()
 	//// Create the mesh component
 	//mallaNaveEnemiga = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
-
+	
 }
 
 void ANaveEnemigaCaza::Mover(float DeltaTime)
@@ -18,8 +18,8 @@ void ANaveEnemigaCaza::Mover(float DeltaTime)
 	FVector PosicionActual = GetActorLocation();
 
 	// Genera nuevas coordenadas X e Y aleatorias
-	float NuevaX = FMath::RandRange(-1000.0f, 1000.0f) * DeltaTime;
-	float NuevaY = FMath::RandRange(-1000.0f, 1000.0f) * DeltaTime;
+	float NuevaX = FMath::RandRange(-1000.0f, 1000.0f) * DeltaTime * velocidad;
+	float NuevaY = FMath::RandRange(-1000.0f, 1000.0f) * DeltaTime * velocidad;
 
 	// Crea un nuevo vector de posición con las coordenadas aleatorias y la misma Z que la posición actual
 	FVector NuevaPosicion = FVector(PosicionActual.X + NuevaX, PosicionActual.Y + NuevaY, PosicionActual.Z);

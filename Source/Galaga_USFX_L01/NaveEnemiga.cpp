@@ -15,6 +15,7 @@ ANaveEnemiga::ANaveEnemiga()
 	//mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
 	mallaNaveEnemiga->SetupAttachment(RootComponent);
 	RootComponent = mallaNaveEnemiga;
+	velocidad = 1;
 }
 
 // Called when the game starts or when spawned

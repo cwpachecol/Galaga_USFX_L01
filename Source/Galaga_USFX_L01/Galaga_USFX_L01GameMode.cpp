@@ -9,6 +9,7 @@
 AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 {
 	// set default pawn class to our character class
+	PrimaryActorTick.bCanEverTick = true;
 	DefaultPawnClass = AGalaga_USFX_L01Pawn::StaticClass();
 
 	//NaveEnemiga01 = nullptr;
@@ -33,14 +34,48 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 			FVector PosicionNaveActual = FVector(ubicacionInicioNavesEnemigasCaza.X, ubicacionInicioNavesEnemigasCaza.Y + i * 300, ubicacionInicioNavesEnemigasTransporte.Z);
 			ANaveEnemigaCaza* NaveEnemigaCazaTemporal = World->SpawnActor<ANaveEnemigaCaza>(PosicionNaveActual, rotacionNave);
 
-			TANavesEnemigasCaza.Push(NaveEnemigaCazaTemporal);
+			//TANavesEnemigasCaza.Push(NaveEnemigaCazaTemporal);
+			TANavesEnemigas.Push(NaveEnemigaCazaTemporal);
 		}
+
+		float nuevaposicionX = ubicacionInicioNavesEnemigasTransporte.X - 300.0f;
+
+		for (int j = 0; j < 5; j++) {
+			FVector PosicionNaveActual = FVector(nuevaposicionX, ubicacionInicioNavesEnemigasTransporte.Y + j * 300, ubicacionInicioNavesEnemigasTransporte.Z);
+			ANaveEnemigaTransporte* NaveEnemigaTransporteTemporal = World->SpawnActor<ANaveEnemigaTransporte>(PosicionNaveActual, rotacionNave);
+
+			//TANavesEnemigasTransporte.Push(NaveEnemigaTransporteTemporal);
+			TANavesEnemigas.Push(NaveEnemigaTransporteTemporal);
+		}
+
 		//NaveEnemigaTransporte01 = World->SpawnActor<ANaveEnemigaTransporte>(ubicacionNave01, rotacionNave);
 		//NaveEnemigaCaza01 = World->SpawnActor<ANaveEnemigaCaza>(ubicacionNave02, rotacionNave);
 
+		TiempoTranscurrido = 0;
 	}
 
 	/*NaveEnemigaCaza01->SetPosicion(FVector(-500.0f, 500.0f, 200.0f));
 	NaveEnemigaTransporte01->SetPosicion(FVector(500.0f, -500.0f, 200.0f));*/
 
+}
+
+void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	TiempoTranscurrido++;
+
+	if (TiempoTranscurrido >= 100)
+	{
+		int numeroEnemigo = FMath::RandRange(0, 9);
+		if(GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Hola estoy aqui")));
+
+
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Entero: %d"), numeroEnemigo));
+			
+		}
+		//TANavesEnemigas[numeroEnemigo]->PrimaryActorTick.bCanEverTick = false;
+		TANavesEnemigas[numeroEnemigo]->SetVelocidad(0);
+	}
 }
