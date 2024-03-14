@@ -26,6 +26,10 @@ public:
 	FORCEINLINE void SetCapacidadCargaVolumen(float capacidad) { capacidadCargaVolumen = capacidad; }
 
 protected:
-	virtual void Mover();
+	virtual void Mover(float DeltaTime);
 	virtual void Disparar();
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 };

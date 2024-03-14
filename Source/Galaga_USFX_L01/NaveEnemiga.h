@@ -78,6 +78,6 @@ public:
 
 protected:
 	//virtual void Mover() = 0;
-	void Mover() PURE_VIRTUAL(ANaveEnemiga::Mover, );
+	void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
 	void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
 };
