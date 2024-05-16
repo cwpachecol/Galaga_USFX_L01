@@ -16,6 +16,7 @@ ANaveEnemiga::ANaveEnemiga()
 	mallaNaveEnemiga->SetupAttachment(RootComponent);
 	RootComponent = mallaNaveEnemiga;
 	velocidad = 1;
+	energia = 100;
 }
 
 // Called when the game starts or when spawned
@@ -29,6 +30,11 @@ void ANaveEnemiga::BeginPlay()
 void ANaveEnemiga::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+}
+
+void ANaveEnemiga::Update(RadarEnemigo* radarEnemigo)
+{
 
 }
 

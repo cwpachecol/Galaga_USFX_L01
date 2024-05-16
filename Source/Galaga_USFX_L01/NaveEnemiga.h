@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Suscriptor.h"
+#include "RadarEnemigo.h"
 #include "NaveEnemiga.generated.h"
-
 UCLASS(abstract)
-class GALAGA_USFX_L01_API ANaveEnemiga : public AActor
+class GALAGA_USFX_L01_API ANaveEnemiga : public AActor, public ISuscriptor
 {
 	GENERATED_BODY()
 
@@ -76,8 +77,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	virtual void Update(class RadarEnemigo* radarEnemigo) override;
+
 protected:
 	//virtual void Mover() = 0;
 	void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
 	void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
+
+private:
+	UPROPERTY()
+	ARadarEnemigo* Radar;
+
 };
