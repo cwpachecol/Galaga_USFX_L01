@@ -34,6 +34,7 @@ protected:
 	float peso;
 	float volumen;
 
+	class ARadarEnemigo* radarEnemigo;
 public:
 	FORCEINLINE float GetVelocidad() const { return velocidad; }
 	FORCEINLINE float GetResistencia() const { return resistencia; }
@@ -77,7 +78,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void Update(class RadarEnemigo* radarEnemigo) override;
+	virtual void Update(class ARadarEnemigo* _radarEnemigo) override;
 
 protected:
 	//virtual void Mover() = 0;

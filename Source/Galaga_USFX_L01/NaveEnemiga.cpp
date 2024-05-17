@@ -33,8 +33,8 @@ void ANaveEnemiga::Tick(float DeltaTime)
 
 }
 
-void ANaveEnemiga::Update(RadarEnemigo* radarEnemigo)
+void ANaveEnemiga::Update(ARadarEnemigo* _radarEnemigo)
 {
-
+	radarEnemigo = _radarEnemigo;
 }
 
