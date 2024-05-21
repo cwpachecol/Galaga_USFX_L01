@@ -30,6 +30,7 @@ public:
 	virtual void suscribe(ANaveEnemiga* neSuscribe);
 	virtual void unsuscribe(ANaveEnemiga* neUnsuscribe);
 	virtual void notifySuscribers();
+	virtual void actualizarSuscribers();
 
 
 };

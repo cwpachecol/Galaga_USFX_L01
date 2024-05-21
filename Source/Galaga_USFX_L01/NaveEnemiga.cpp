@@ -33,8 +33,59 @@ void ANaveEnemiga::Tick(float DeltaTime)
 
 }
 
-void ANaveEnemiga::Update(ARadarEnemigo* _radarEnemigo)
+void ANaveEnemiga::setRadar(ARadarEnemigo* _radarEnemigo)
 {
-	radarEnemigo = _radarEnemigo;
+	if (!_radar) {
+		UE_LOG(LogTemp, Error, TEXT("Radar no existe")); 
+		return; 
+	}
+	radar = _radarEnemigo;
+	radar->suscribe(this);
+}
+
+void ANaveEnemiga::Destroyed()
+{
+	Super::Destroyed();
+	if (!radar) {
+		UE_LOG(LogTemp, Error, TEXT("No hay radar enemigo.")); 
+		return; 
+	}
+	
+	radar->unsuscribe(this);
+}
+
+
+
+
+void ANaveEnemiga::update()
+{
+	//Log Error if its Clock Tower is NULL
+	if (!radar) {
+		UE_LOG(LogTemp, Error, TEXT("No hay radar.")); 
+		return; 
+	}
+	
+	//Get the current time of the Clock Tower
+	float promedioEnergiaNavesEnemigas = radar->getPromedioEnergiaNavesEnemigas();
+		if (!promedioEnergiaNavesEnemigas < 10.0f)
+		{
+			moverA(radar->posicionReabastecimiento);
+		}
+		//else if (!Time.Compare("Midday"))
+		//{
+		//	//Execute the Midday routine
+		//	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow,
+		//		FString::Printf(TEXT("It is %s, so FreakyAllen's right eye starts to twitch"),
+		//			*Time));
+		//}
+		//else if (!Time.Compare("Evening"))
+		//{
+		//	//Execute the Evening routine
+		//	GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Yellow,
+		//		FString::Printf(TEXT("It is %s, so FreakyAllen morphs into a blood sucking
+		//			wogglesnort"), *Time));
+		//}
+
+
 }
 

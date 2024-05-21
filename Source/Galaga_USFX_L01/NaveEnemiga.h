@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Suscriptor.h"
+#include "Subscriptor.h"
 #include "RadarEnemigo.h"
 #include "NaveEnemiga.generated.h"
 UCLASS(abstract)
-class GALAGA_USFX_L01_API ANaveEnemiga : public AActor, public ISuscriptor
+class GALAGA_USFX_L01_API ANaveEnemiga : public AActor, public ISubscriptor
 {
 	GENERATED_BODY()
 
@@ -17,7 +17,7 @@ public:
 	UStaticMeshComponent* mallaNaveEnemiga;
 
 protected:
-	
+
 	float velocidad;
 	float resistencia; //Numero de disparos que puede recibir antes de ser destruido
 	FString nombre;
@@ -74,11 +74,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void Update(class ARadarEnemigo* _radarEnemigo) override;
+	virtual void update() override;
 
 protected:
 	//virtual void Mover() = 0;
@@ -87,6 +87,11 @@ protected:
 
 private:
 	UPROPERTY()
-	ARadarEnemigo* Radar;
+	ARadarEnemigo* radar;
+
+public:
+	void setRadar(ARadarEnemigo* _radar);
+
+	virtual void Destroyed() override;
 
 };

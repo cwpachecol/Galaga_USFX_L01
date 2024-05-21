@@ -2,7 +2,7 @@
 
 
 #include "Publisher.h"
-#include "Suscriptor.h"
+#include "Subscriptor.h"
 // Sets default values
 APublisher::APublisher()
 {
@@ -25,9 +25,13 @@ void APublisher::Tick(float DeltaTime)
 
 }
 
-void APublisher::suscribe(ANaveEnemiga* neSuscribe)
+void APublisher::suscribe(ANaveEnemiga* neSubscribe)
 {
-	listaSuscriptores.Add(neSuscribe);
+	/*ISubscriptor* sub_act = Cast<ISubscriptor>(neSubscribe);
+	sub_act->update(this);
+	neSubscribe->update(this);*/
+	listaSuscriptores.Add(neSubscribe);
+	
 }
 
 void APublisher::unsuscribe(ANaveEnemiga* neUnsuscribe)
@@ -40,15 +44,25 @@ void APublisher::notifySuscribers()
 	for (ANaveEnemiga* naveEnemiga : listaSuscriptores)
 	{
 		//Cast each of them to a concrete Subscriber
-		ISuscriptor* Sub = Cast<ISuscriptor>(naveEnemiga);
+		ISubscriptor* Sub = Cast<ISubscriptor>(naveEnemiga);
 		if (Sub)
 		{
-			Sub->Update(this);
+			Sub->update();
 		}
 	}
 
-	for (ANaveEnemiga* nave : listaSuscriptores)
-	{
-		nave->U();
-	}
 }
+
+//void APublisher::actualizarSuscribers()
+//{
+//	for (ANaveEnemiga* naveEnemiga : listaSuscriptores)
+//	{
+//		//Cast each of them to a concrete Subscriber
+//		ISubscriptor* Sub = Cast<ISubscriptor>(naveEnemiga);
+//		if (Sub)
+//		{
+//			Sub->(this);
+//		}
+//	}
+//
+//}

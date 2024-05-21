@@ -31,6 +31,13 @@ void ARadarEnemigo::Tick(float DeltaTime)
 
 void ARadarEnemigo::EnviarSuscriptoresAReabastecimiento()
 {
+
+    for (ANaveEnemiga* suscriptor : listaSuscriptores)
+    {
+        if (suscriptor){
+            suscriptor->moverA(posicionReabastecimiento) )
+		}
+	}
 }
 
 float ARadarEnemigo::calcularPromedioEnergiaSuscriptores()

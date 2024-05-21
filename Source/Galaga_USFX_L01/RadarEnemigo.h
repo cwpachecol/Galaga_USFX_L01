@@ -33,4 +33,6 @@ public:
 	float calcularPromedioEnergiaSuscriptores();
 
 	FVector posicionReabastecimiento;
+
+	float getPromedioEnergiaNavesEnemigas() { promedioEnergiaSuscritores; }
 };
