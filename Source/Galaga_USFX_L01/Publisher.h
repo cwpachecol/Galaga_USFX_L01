@@ -24,13 +24,13 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
-	TArray<class ANaveEnemiga*> listaSuscriptores = TArray<ANaveEnemiga*>();
+	TArray<class AActor*> listaSuscriptores = TArray<AActor*>();
 
 public:
-	virtual void suscribe(ANaveEnemiga* neSuscribe);
-	virtual void unsuscribe(ANaveEnemiga* neUnsuscribe);
-	virtual void notifySuscribers();
-	virtual void actualizarSuscribers();
+	virtual void suscribe(AActor* neSuscribe);
+	virtual void unsuscribe(AActor* neUnsuscribe);
+	virtual void notifySuscribers(FString _accion);
+	//virtual void actualizarSuscribers();
 
 
 };

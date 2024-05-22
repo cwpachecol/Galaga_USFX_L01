@@ -25,14 +25,14 @@ public:
 
 	FTimerHandle Agrupar;
 	FTimerHandle Reabastecer;
-	float promedioEnergiaSuscritores;
 	float valorMinimoEnergiaSuscriptor = 10;
+
+	float promedioEnergiaSuscritores;
 	float valorMinimoPromedioEnergia = 30;
-	void EnviarSuscriptoresAReabastecimiento();
 
 	float calcularPromedioEnergiaSuscriptores();
 
 	FVector posicionReabastecimiento;
 
-	float getPromedioEnergiaNavesEnemigas() { promedioEnergiaSuscritores; }
+	float getPromedioEnergiaNavesEnemigas() { return promedioEnergiaSuscritores; }
 };

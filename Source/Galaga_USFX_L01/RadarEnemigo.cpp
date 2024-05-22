@@ -2,7 +2,7 @@
 
 
 #include "RadarEnemigo.h"
-#include "Suscriptor.h"
+#include "Subscriptor.h"
 #include "NaveEnemiga.h"
 
 // Sets default values
@@ -26,26 +26,17 @@ void ARadarEnemigo::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
     promedioEnergiaSuscritores = calcularPromedioEnergiaSuscriptores();
     if (promedioEnergiaSuscritores <= valorMinimoPromedioEnergia)
-        EnviarSuscriptoresAReabastecimiento();
-}
-
-void ARadarEnemigo::EnviarSuscriptoresAReabastecimiento()
-{
-
-    for (ANaveEnemiga* suscriptor : listaSuscriptores)
-    {
-        if (suscriptor){
-            suscriptor->moverA(posicionReabastecimiento) )
-		}
-	}
+        notifySuscribers("reabastecer");
+        
 }
 
 float ARadarEnemigo::calcularPromedioEnergiaSuscriptores()
 {
     float EnergiaTotal = 0;
-    for (ANaveEnemiga* suscriptor : listaSuscriptores)
+    for (AActor* suscriptor : listaSuscriptores)
     {
-        EnergiaTotal += suscriptor->GetEnergia();
+        ANaveEnemiga* naveEnemiga = Cast<ANaveEnemiga>(suscriptor);
+        EnergiaTotal += naveEnemiga->GetEnergia();
     }
     return EnergiaTotal / listaSuscriptores.Num();
 

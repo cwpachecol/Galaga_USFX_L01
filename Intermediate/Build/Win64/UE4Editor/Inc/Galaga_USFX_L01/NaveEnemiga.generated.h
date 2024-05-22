@@ -60,10 +60,7 @@ public: \
 	DEFINE_ABSTRACT_DEFAULT_CONSTRUCTOR_CALL(ANaveEnemiga)
 
 
-#define Galaga_USFX_L01_Source_Galaga_USFX_L01_NaveEnemiga_h_13_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__Radar() { return STRUCT_OFFSET(ANaveEnemiga, Radar); }
-
-
+#define Galaga_USFX_L01_Source_Galaga_USFX_L01_NaveEnemiga_h_13_PRIVATE_PROPERTY_OFFSET
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_NaveEnemiga_h_10_PROLOG
 #define Galaga_USFX_L01_Source_Galaga_USFX_L01_NaveEnemiga_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

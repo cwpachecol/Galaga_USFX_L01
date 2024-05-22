@@ -25,7 +25,7 @@ void APublisher::Tick(float DeltaTime)
 
 }
 
-void APublisher::suscribe(ANaveEnemiga* neSubscribe)
+void APublisher::suscribe(AActor* neSubscribe)
 {
 	/*ISubscriptor* sub_act = Cast<ISubscriptor>(neSubscribe);
 	sub_act->update(this);
@@ -34,20 +34,21 @@ void APublisher::suscribe(ANaveEnemiga* neSubscribe)
 	
 }
 
-void APublisher::unsuscribe(ANaveEnemiga* neUnsuscribe)
+void APublisher::unsuscribe(AActor* neUnsuscribe)
 {
 	listaSuscriptores.Remove(neUnsuscribe);
 }
 
-void APublisher::notifySuscribers()
+void APublisher::notifySuscribers(FString _accion)
 {
-	for (ANaveEnemiga* naveEnemiga : listaSuscriptores)
+
+	for (AActor* naveEnemiga : listaSuscriptores)
 	{
 		//Cast each of them to a concrete Subscriber
 		ISubscriptor* Sub = Cast<ISubscriptor>(naveEnemiga);
 		if (Sub)
 		{
-			Sub->update();
+			Sub->update(_accion);
 		}
 	}
 

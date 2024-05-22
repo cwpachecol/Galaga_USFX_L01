@@ -78,20 +78,16 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void update() override;
+	virtual void update(FString _accion) override;
 
 protected:
 	//virtual void Mover() = 0;
 	void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
 	void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
 
-private:
-	UPROPERTY()
-	ARadarEnemigo* radar;
-
 public:
 	void setRadar(ARadarEnemigo* _radar);
-
+	void moverA(FVector _destino);
 	virtual void Destroyed() override;
 
 };

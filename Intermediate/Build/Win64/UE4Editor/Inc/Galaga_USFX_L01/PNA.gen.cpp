@@ -17,7 +17,6 @@ void EmptyLinkFunctionForGeneratedCodePNA() {}
 	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_APNA();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_Galaga_USFX_L01();
-	GALAGA_USFX_L01_API UClass* Z_Construct_UClass_UPlanoConstruccion_NoRegister();
 // End Cross Module References
 	void APNA::StaticRegisterNativesAPNA()
 	{
@@ -32,7 +31,6 @@ void EmptyLinkFunctionForGeneratedCodePNA() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
-		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -46,9 +44,6 @@ void EmptyLinkFunctionForGeneratedCodePNA() {}
 		{ "ModuleRelativePath", "PNA.h" },
 	};
 #endif
-		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_APNA_Statics::InterfaceParams[] = {
-			{ Z_Construct_UClass_UPlanoConstruccion_NoRegister, (int32)VTABLE_OFFSET(APNA, IPlanoConstruccion), false },
-		};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APNA_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APNA>::IsAbstract,
 	};
@@ -59,11 +54,11 @@ void EmptyLinkFunctionForGeneratedCodePNA() {}
 		DependentSingletons,
 		nullptr,
 		nullptr,
-		InterfaceParams,
+		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
 		0,
-		UE_ARRAY_COUNT(InterfaceParams),
+		0,
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_APNA_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_APNA_Statics::Class_MetaDataParams))
 	};
@@ -76,7 +71,7 @@ void EmptyLinkFunctionForGeneratedCodePNA() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APNA, 223468859);
+	IMPLEMENT_CLASS(APNA, 3605734373);
 	template<> GALAGA_USFX_L01_API UClass* StaticClass<APNA>()
 	{
 		return APNA::StaticClass();

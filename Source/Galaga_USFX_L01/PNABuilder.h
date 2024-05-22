@@ -27,7 +27,7 @@ class GALAGA_USFX_L01_API IPNABuilder
 	virtual void builtAcenal() = 0;
 	virtual void builtReavastecimiento() = 0;
 
-	virtual class APNA* GetPNA() = 0;
+	//virtual class APNA* GetPNA() = 0;
 
 public:
 };

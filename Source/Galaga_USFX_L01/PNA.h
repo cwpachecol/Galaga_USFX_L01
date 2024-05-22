@@ -4,11 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "PlanoConstruccion.h"
 #include "PNA.generated.h"
 
 UCLASS()
-class GALAGA_USFX_L01_API APNA : public AActor, public IPlanoConstruccion
+class GALAGA_USFX_L01_API APNA : public AActor
 {
 	GENERATED_BODY()
 	

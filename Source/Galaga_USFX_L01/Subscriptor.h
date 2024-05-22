@@ -22,5 +22,5 @@ class GALAGA_USFX_L01_API ISubscriptor
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	virtual void update() = 0;
+	virtual void update(FString _accion) = 0;
 };
