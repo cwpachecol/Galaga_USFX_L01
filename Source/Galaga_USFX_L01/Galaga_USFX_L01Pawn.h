@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "State.h"
 #include "Galaga_USFX_L01Pawn.generated.h"
 
 UCLASS(Blueprintable)
@@ -22,6 +23,37 @@ class AGalaga_USFX_L01Pawn : public APawn
 	/** Camera boom positioning the camera above the character */
 	UPROPERTY(Category = Camera, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
+
+private:
+	IState* basica;
+	IState* conArmamentoAdicional;
+	IState* conCamuflage;
+	IState* conSistemaProteccion;
+	IState* state;
+
+public:
+	IState* getState() { return state; }
+	void setState(IState* _state) { state = _state; }
+
+	IState* getBasica() { return basica; }
+	IState* getConArmamentoAdicional() { return conArmamentoAdicional; }
+	IState* getConCamuflage() { return conCamuflage; }
+	IState* getConSistemaProteccion() { return conSistemaProteccion; }
+
+	void setBasica(IState* _basica) { basica = _basica; }
+	void setConArmamentoAdicional(IState* _conArmamentoAdicional) { conArmamentoAdicional = _conArmamentoAdicional; }
+	void setConCamuflage(IState* _conCamuflage) { conCamuflage = _conCamuflage; }
+	void setConSistemaProteccion(IState* _conSistemaProteccion) { conSistemaProteccion = _conSistemaProteccion; }
+
+	void activarArmamentoAdicional();
+	void activarProteccion();
+	void activarCamuflage();
+	void desactivarArmamentoAdicional();
+	void desactivarProteccion();
+	void desactivarCamuflage();
+
+	void inicializar();
+
 
 public:
 	AGalaga_USFX_L01Pawn();
@@ -74,5 +106,31 @@ public:
 	FORCEINLINE class UCameraComponent* GetCameraComponent() const { return CameraComponent; }
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+
+private:
+	int municionesAdicionales;
+	int proteccion;
+	int camuflage;
+	bool municionesAdicionalesActivadas;
+	bool proteccionActivada;
+	bool camuflageActivado;
+
+public:
+
+	FORCEINLINE bool getMunicionesAdicionalesActivadas() const { return municionesAdicionalesActivadas; }
+	FORCEINLINE bool getProteccionActivada() const { return proteccionActivada; }
+	FORCEINLINE bool getCamuflageActivado() const { return camuflageActivado; }
+	FORCEINLINE void setMunicionesAdicionalesActivadas(bool _municionesAdicionalesActivadas) { municionesAdicionalesActivadas = _municionesAdicionalesActivadas; }
+	FORCEINLINE void setProteccionActivada(bool _proteccionActivada) { proteccionActivada = _proteccionActivada; }
+	FORCEINLINE void setCamuflageActivado(bool _camuflageActivado) { camuflageActivado = _camuflageActivado; }
+
+	void setMunicionesAdicionales(int _municionesAdicionales);
+	void setProteccion(int _proteccion);
+	void setCamuflage(int _camuflage);
+
+	int getMunicionesAdicionales();
+	int getProteccion();
+	int getCamuflage();
+
 };
 

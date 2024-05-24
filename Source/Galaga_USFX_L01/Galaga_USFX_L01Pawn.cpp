@@ -12,11 +12,60 @@
 #include "Engine/StaticMesh.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundBase.h"
+#include "ConArmamentoAdicional.h"
+#include "ConCamuflage.h"
+#include "ConSistemaProteccion.h"
+#include "basica.h"
+
 
 const FName AGalaga_USFX_L01Pawn::MoveForwardBinding("MoveForward");
 const FName AGalaga_USFX_L01Pawn::MoveRightBinding("MoveRight");
 const FName AGalaga_USFX_L01Pawn::FireForwardBinding("FireForward");
 const FName AGalaga_USFX_L01Pawn::FireRightBinding("FireRight");
+
+void AGalaga_USFX_L01Pawn::activarArmamentoAdicional()
+{
+	state->activarArmamentoAdicional();
+}
+
+void AGalaga_USFX_L01Pawn::activarProteccion()
+{
+	state->activarProteccion();
+}
+
+void AGalaga_USFX_L01Pawn::activarCamuflage()
+{
+	state->activarCamuflage();
+}
+
+void AGalaga_USFX_L01Pawn::desactivarArmamentoAdicional()
+{
+}
+
+void AGalaga_USFX_L01Pawn::desactivarProteccion()
+{
+}
+
+void AGalaga_USFX_L01Pawn::desactivarCamuflage()
+{
+}
+
+void AGalaga_USFX_L01Pawn::inicializar()
+{
+	conArmamentoAdicional = GetWorld()->SpawnActor<AConArmamentoAdicional>(AConArmamentoAdicional::StaticClass());
+	conArmamentoAdicional->setNaveJugador(this);
+
+	conCamuflage = GetWorld()->SpawnActor<AConCamuflage>(AConCamuflage::StaticClass());
+	conCamuflage->setNaveJugador(this);
+
+	conSistemaProteccion = GetWorld()->SpawnActor<AConSistemaProteccion>(AConSistemaProteccion::StaticClass());
+	conSistemaProteccion->setNaveJugador(this);
+
+	basica = GetWorld()->SpawnActor<Abasica>(Abasica::StaticClass());
+	basica->setNaveJugador(this);
+
+	state = basica;
+}
 
 AGalaga_USFX_L01Pawn::AGalaga_USFX_L01Pawn()
 {	
@@ -135,5 +184,35 @@ void AGalaga_USFX_L01Pawn::FireShot(FVector FireDirection)
 void AGalaga_USFX_L01Pawn::ShotTimerExpired()
 {
 	bCanFire = true;
+}
+
+void AGalaga_USFX_L01Pawn::setMunicionesAdicionales(int _municionesAdicionales)
+{
+	municionesAdicionales = _municionesAdicionales;
+}
+
+void AGalaga_USFX_L01Pawn::setProteccion(int _proteccion)
+{
+	proteccion = _proteccion;
+}
+
+void AGalaga_USFX_L01Pawn::setCamuflage(int _camuflage)
+{
+	camuflage = _camuflage;
+}
+
+int AGalaga_USFX_L01Pawn::getMunicionesAdicionales()
+{
+	return municionesAdicionales;
+}
+
+int AGalaga_USFX_L01Pawn::getProteccion()
+{
+	return proteccion;
+}
+
+int AGalaga_USFX_L01Pawn::getCamuflage()
+{
+	return camuflage;
 }
 
