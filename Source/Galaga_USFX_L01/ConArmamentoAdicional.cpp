@@ -48,7 +48,7 @@ void AConArmamentoAdicional::desactivarArmamentoAdicional()
 		naveJugador->setState(naveJugador->getConSistemaProteccion());
 	}
 	else {
-		naveJugador->setState(naveJugador->getBasica())
+		naveJugador->setState(naveJugador->getBasica());
 	}
 	
 }

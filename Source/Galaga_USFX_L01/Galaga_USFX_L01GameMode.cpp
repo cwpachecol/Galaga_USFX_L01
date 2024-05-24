@@ -11,7 +11,7 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 	// set default pawn class to our character class
 	PrimaryActorTick.bCanEverTick = true;
 	DefaultPawnClass = AGalaga_USFX_L01Pawn::StaticClass();
-
+	actualPawn = Cast<AGalaga_USFX_L01Pawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	//NaveEnemiga01 = nullptr;
 }
 
@@ -66,13 +66,14 @@ void AGalaga_USFX_L01GameMode::Tick(float DeltaTime)
 
 	if (TiempoTranscurrido >= 100)
 	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, actualPawn->getState()->ToString());
 		int numeroEnemigo = FMath::RandRange(0, 9);
 		if(GEngine)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Hola estoy aqui")));
+			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Hola estoy aqui")));
 
 
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Entero: %d"), numeroEnemigo));
+			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Entero: %d"), numeroEnemigo));
 			
 		}
 		//TANavesEnemigas[numeroEnemigo]->PrimaryActorTick.bCanEverTick = false;

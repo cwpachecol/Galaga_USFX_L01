@@ -22,6 +22,8 @@ public:
 	//ANaveEnemiga* NaveEnemiga01;
 	ANaveEnemigaTransporte* NaveEnemigaTransporte01;
 	ANaveEnemigaCaza* NaveEnemigaCaza01;
+
+	class AGalaga_USFX_L01Pawn* actualPawn;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
